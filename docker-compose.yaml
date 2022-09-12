@@ -1,0 +1,26 @@
+volumes:
+  reverse_proxy_data:
+  reverse_proxy_config:
+
+networks:
+  reverse_proxy_network:
+
+
+services:
+  reverse-proxy:
+    image: caddy:latest
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile.dev:/etc/caddy/Caddyfile:ro
+      - reverse_proxy_data:/data
+      - reverse_proxy_config:/config
+    networks:
+      - reverse_proxy_network
+
+  back:
+    build: .
+    command: uvicorn app.main:app --port 8001
+    networks:
+      - reverse_proxy_network
