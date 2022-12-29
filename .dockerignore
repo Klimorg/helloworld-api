@@ -1,0 +1,11 @@
+.github
+.pytest_cache
+tests
+
+.coverage
+.gitignore
+.pre-commit*
+LICENSE
+makefile
+READMED.md
+requirements-test.txt

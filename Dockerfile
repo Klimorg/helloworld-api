@@ -1,11 +1,11 @@
 FROM python:3.9-slim
 
-WORKDIR /code
+WORKDIR /opt
 
-COPY ./requirements.txt /code/requirements.txt
+COPY ./app/requirements.txt /opt/requirements.txt
 
-RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
+RUN pip install --no-cache-dir --upgrade -r /opt/requirements.txt
 
-COPY ./app /code/app
+COPY ./app /opt/app
 
 CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]

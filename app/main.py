@@ -1,11 +1,9 @@
 from fastapi import FastAPI, status
 from fastapi.middleware.cors import CORSMiddleware
-import uvicorn
-from typing import Optional
 
 app = FastAPI(
     title="Mathieu's API",
-    description="Simple API to be used as a docker tutorial",
+    description="Simple API to be used as a docker/k8S tutorial",
     version="0.1.0",
 )
 
