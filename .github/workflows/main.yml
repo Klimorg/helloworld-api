@@ -59,7 +59,7 @@ jobs:
               id: docker_build_api
               uses: docker/build-push-action@v3
               with:
-                  file: Dockerfile.backend
+                  file: Dockerfile
                   # push new image only if on main branch
                   push: ${{ github.ref == 'refs/heads/main' }}
                   tags: |
